@@ -1,7 +1,5 @@
 const querystring = require('querystring')
 
-function createQueryString(query) {
-  return querystring.stringify(query)
-}
+const createQueryString = (query) => querystring.stringify(query)
 
 module.exports = createQueryString
