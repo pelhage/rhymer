@@ -9,6 +9,16 @@ program
   .option('-R, --related [value]', 'Find words related to [value]')
   .option('-n, --nearRhyme [value]', 'Find near rhymes')
   .option('-s, --synonym [value]', 'Find synonym for word')
-  .parse(process.argv);
+
+// Help
+program
+  .on('--help', function() {
+    console.log('')
+    console.log('Examples:')
+    console.log('  $ wordsmith --rhyme purple') // potential package name???
+    console.log('  $ wordsmith -r purple')
+  })
+
+program.parse(process.argv)
 
 module.exports = program
