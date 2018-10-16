@@ -1,33 +1,30 @@
 const chalk = require('chalk')
 
-const PRINT_STYLE = {
-  normal: chalk.dim,
-  medium: chalk.blue,
-  bold: chalk.blue.bold
+const printStyler = {
+  weak: (word) => chalk.dim(word),
+  normal: (word) => chalk.blue(word),
+  strong: (word) => chalk.blue.bold(word),
 }
 
-const PrettyPrint = {
-  weak: (word) => PRINT_STYLE.normal(word),
-  normal: (word) => PRINT_STYLE.medium(word),
-  strong: (word) => PRINT_STYLE.bold(word),
+const sortBySyllables = data => data.sort((a, b) => a.numSyllables - b.numSyllables)
+
+const styleByScore = wordObj => {
+  const { word, score } = wordObj
+  if (score > 3000) {
+    return printStyler.strong(word)
+  } else if (score > 2000) {
+    return printStyler.normal(word)
+  }
+  return printStyler.weak(word)
 }
 
 const outputWords = (data, { isVerbose, isSorted }) => {
   // sort the data by lowest syllables to highest
-  const sortedData = isSorted ? data.sort((a, b) => a.numSyllables - b.numSyllables) : data
-  
+  const wordSet = isSorted ? sortBySyllables(data) : data
   // Make it beautiful
-  const prettyData = sortedData.map(data => {
-    if (data.score > 3000) {
-      return PrettyPrint.strong(data.word)
-    } else if (data.score > 2000) {
-      return PrettyPrint.normal(data.word)
-    }
-    return PrettyPrint.weak(data.word)
-  })
+  const prettyData = wordSet.map(styleByScore).join(' ')
   // Finally, output the data as words
-  console.log(prettyData.join(' '))
+  console.log(prettyData)
 }
-
 
 module.exports = { PrettyPrint, outputWords }
