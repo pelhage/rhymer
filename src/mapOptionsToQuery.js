@@ -1,4 +1,4 @@
-// TODO: Do not pass in the Program object direclty. Pull out the CLI options beforehand
+// TODO: Do not pass in the Program object directly. Pull out the CLI options beforehand
 /**
  * Return all of `program`'s values matching `availableOptions` as keys
  * @param {Object} program 
