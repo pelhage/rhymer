@@ -1,47 +1,20 @@
-const https = require('https')
+const axios = require('axios')
 
-function makeRequest(query) {
-  const request = new Promise((resolve, reject) => {
-    https.get(`https://api.datamuse.com/words?${query}`, (res) => {
-      const { statusCode } = res;
-      const contentType = res.headers['content-type'];
-  
-      let error;
-      if (statusCode !== 200) {
-        error = new Error('Request Failed.\n' +
-                          `Status Code: ${statusCode}`);
-      } else if (!/^application\/json/.test(contentType)) {
-        error = new Error('Invalid content-type.\n' +
-                          `Expected application/json but received ${contentType}`);
-      }
-      if (error) {
-        console.error(error.message);
-        // consume response data to free up memory
-        res.resume();
-        Promise.reject(error)
-      }
-  
-      res.setEncoding('utf8');
-      let rawData = '';
-      res.on('data', (chunk) => { rawData += chunk; });
-      res.on('end', () => {
-        try {
-          const parsedData = JSON.parse(rawData);
-          // console.log(parsedData);
-          resolve(parsedData)
-        } catch (e) {
-          console.error(e.message);
-          reject(e.message)
-        }
-      });
-    }).on('error', (e) => {
-      console.error(`Got error: ${e.message}`);
-      reject(e.message)
-    });
-  })
-
-  return request
+// https://www.datamuse.com/api/
+const API = { base: 'https://api.datamuse.com/' }
+/*
+  `/words` endpoint
+  This endpoint returns a list of words (and multiword expressions)
+  from a given vocabulary that match a given set of constraints. 
+*/
+function getWords(query) {
+  return axios.get(`${API.base}/words?${query}`).then(res => res.data)
 }
 
+const QUERY_PARAMS = {
+  rhyme: 'rel_rhy',
+  nearRhyme: 'rel_nry',
+  synonym: 'rel_syn'
+}
 
-module.exports = makeRequest
+module.exports = { getWords, QUERY_PARAMS }
