@@ -1,6 +1,6 @@
 {
   "name": "rhymezone-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A command-line tool for querying Rhymezone",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,7 @@
   "author": "Patrick El-Hage",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.1",
     "commander": "^2.18.0"
   },
   "devDependencies": {

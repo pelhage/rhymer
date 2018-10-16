@@ -1,4 +1,4 @@
-const createQueryString = require('../createQueryString')
+const createQueryString = require('../util/createQueryString')
 
 describe('createQueryString', () => {
   it('should map an object with key value pairs to a query string', () => {
