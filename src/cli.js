@@ -1,7 +1,9 @@
 const program = require('commander')
 
+const packageVersion = require('../package.json').version
+
 program
-  .version('0.1.0')
+  .version(packageVersion)
   .usage('[options] <file ...>')
   .option('-r, --rhyme [value]', 'Find rhymes')
   .option('-R, --related [value]', 'Find words related to [value]')
