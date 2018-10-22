@@ -7,4 +7,5 @@ Allows developers to find words that rhyme straight from the terminal. Basically
 - Publish as NPM package
 - Set up test checks on Github
 - Add Prettier and/or StandardJS and/or ESLint for code formatting
-- Allow a `verbose` flag that will further categorize words by syllable
+~- Allow a `verbose` flag that will further categorize words by syllable~
+- Add more modern syntax for imports and babel

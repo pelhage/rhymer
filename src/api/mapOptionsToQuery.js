@@ -7,18 +7,21 @@
 const mapObjectToNewKeys = (oldObject, keyMap) =>
   Object.keys(oldObject).reduce((acc, oldKey) => {
     const newKey = keyMap[oldKey]
-    return Object.assign({}, acc, {[newKey]: oldObject[oldKey]})
+    return Object.assign({}, acc, { [newKey]: oldObject[oldKey] })
   }, {})
 
- /**
+/**
  * Given a CLI Program object and a list of options that map to query param values to be
  * sent to the API, we pull out all passed in values and create a query string out of it
  * @param {Object} program - The God program object for the cli (TODO: should probably not be passing this in..)
  * @param {Object} queryOptions - the map of CLI options and their query param values for the API
  */
 const mapOptionsToQuery = (programOptionValues, queryOptions) => {
-  const objectWithQueryParamsAsKeys = mapObjectToNewKeys(programOptionValues, queryOptions)
-  
+  const objectWithQueryParamsAsKeys = mapObjectToNewKeys(
+    programOptionValues,
+    queryOptions
+  )
+
   return objectWithQueryParamsAsKeys
 }
 
