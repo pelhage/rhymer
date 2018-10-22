@@ -4,7 +4,8 @@
   "description": "A command-line tool for querying Rhymezone",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest --watchAll ./src/"
+    "test": "./node_modules/.bin/jest ./src/",
+    "test:watch": "./node_modules/.bin/jest ./src/ --watchAll"
   },
   "keywords": [
     "rhymezone",
