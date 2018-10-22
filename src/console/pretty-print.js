@@ -18,13 +18,11 @@ const styleByScore = wordObj => {
   return printStyler.weak(word)
 }
 
-const outputWords = (data, { isVerbose, isSorted }) => {
-  // sort the data by lowest syllables to highest
+const logWordSearchResults = (data, { isVerbose, isSorted }) => {
   const wordSet = isSorted ? sortBySyllables(data) : data
-  // Make it beautiful
   const prettyData = wordSet.map(styleByScore).join(' ')
-  // Finally, output the data as words
+
   console.log(prettyData)
 }
 
-module.exports = { printStyler, outputWords }
+module.exports = { printStyler, logWordSearchResults }

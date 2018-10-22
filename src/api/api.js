@@ -16,9 +16,9 @@ const QUERY_PARAMS = {
   This endpoint returns a list of words (and multiword expressions)
   from a given vocabulary that match a given set of constraints. 
 */
-function getWords(userInput) {
+function fetchWords(userInput) {
   const query = querystring.stringify(mapOptionsToQuery(userInput, QUERY_PARAMS))
   return axios.get(`${API.base}/words?${query}`).then(res => res.data)
 }
 
-module.exports = { getWords, QUERY_PARAMS }
+module.exports = fetchWords

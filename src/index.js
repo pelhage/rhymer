@@ -1,9 +1,9 @@
 const CLI = require('./cli')
-const getWords = require('./api').getWords
+const VALID_OPTION_FLAGS = require('./constants/valid-flags')
 const pullValuesFromCommand = require('./pullValuesFromCommand')
-const outputWords = require('./console/pretty-print').outputWords
-const VALID_FLAGS = require('./constants/valid-flags')
+const fetchWords = require('./api/api')
+const logWordSearchResults = require('./console/pretty-print').logWordSearchResults
 
-const userInput = pullValuesFromCommand(CLI, VALID_FLAGS)
+const userInput = pullValuesFromCommand(CLI, VALID_OPTION_FLAGS)
 
-getWords(userInput).then(data => outputWords(data, { isVerbose: true, isSorted: true }))
+fetchWords(userInput).then(data => logWordSearchResults(data, { isVerbose: true, isSorted: true }))

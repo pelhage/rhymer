@@ -1,4 +1,4 @@
-const mapOptionsToQuery = require('../mapOptionsToQuery')
+const mapOptionsToQuery = require('../api/mapOptionsToQuery')
 
 // Map potential option to its respective query param
 const MOCK_OPTIONS = {
