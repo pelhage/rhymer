@@ -1,16 +1,3 @@
-// TODO: Do not pass in the Program object directly. Pull out the CLI options beforehand
-/**
- * Return all of `program`'s values matching `availableOptions` as keys
- * @param {Object} program 
- * @param {Array} availableOptions 
- */
-const getProgramOptionValues = (program, availableOptions) => 
-  availableOptions.reduce((acc, option) =>
-    program[option]
-      ? Object.assign({}, acc, { [option]: program[option] })
-      : acc,
-  {})
-
 /**
  * Return a new object that uses the values of `keyMap` that
  * correspond to `oldObject`'s keys. This is used to convert arguments into query params
@@ -29,8 +16,7 @@ const mapObjectToNewKeys = (oldObject, keyMap) =>
  * @param {Object} program - The God program object for the cli (TODO: should probably not be passing this in..)
  * @param {Object} queryOptions - the map of CLI options and their query param values for the API
  */
-const mapOptionsToQuery = (program, queryOptions) => {
-  const programOptionValues = getProgramOptionValues(program, Object.keys(queryOptions))
+const mapOptionsToQuery = (programOptionValues, queryOptions) => {
   const objectWithQueryParamsAsKeys = mapObjectToNewKeys(programOptionValues, queryOptions)
   
   return objectWithQueryParamsAsKeys

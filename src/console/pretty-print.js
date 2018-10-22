@@ -27,4 +27,4 @@ const outputWords = (data, { isVerbose, isSorted }) => {
   console.log(prettyData)
 }
 
-module.exports = { PrettyPrint, outputWords }
+module.exports = { printStyler, outputWords }

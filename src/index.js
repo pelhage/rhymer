@@ -1,10 +1,9 @@
-const querystring = require('querystring')
 const CLI = require('./cli')
-const mapOptionsToQuery = require('./mapOptionsToQuery')
 const getWords = require('./api').getWords
-const QUERY_PARAMS = require('./api').QUERY_PARAMS
+const pullValuesFromCommand = require('./pullValuesFromCommand')
 const outputWords = require('./console/pretty-print').outputWords
-  
-const query = querystring.stringify(mapOptionsToQuery(CLI, QUERY_PARAMS))
+const VALID_FLAGS = require('./constants/valid-flags')
 
-getWords(query).then(data => outputWords(data, { isVerbose: true, isSorted: true }))
+const userInput = pullValuesFromCommand(CLI, VALID_FLAGS)
+
+getWords(userInput).then(data => outputWords(data, { isVerbose: true, isSorted: true }))

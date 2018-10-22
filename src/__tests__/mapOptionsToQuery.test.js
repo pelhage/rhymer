@@ -9,12 +9,12 @@ const MOCK_OPTIONS = {
 }
 
 const FAKE_PROGRAM = {
-  another: 'randomOption',
   hello: 'world',
   foobar: 'baz',
   kendrick: 'lamar'
 }
-
+// TODO: Adjust code + test case in the event program contains
+// key value pair not included in available options...
 describe('mapOptionsToQuery', () => {
   it('should map program options to query params', () => {
     const actual = mapOptionsToQuery(FAKE_PROGRAM, MOCK_OPTIONS)

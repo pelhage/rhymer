@@ -1,4 +1,4 @@
-const PrettyPrint = require('../console/pretty-print').PrettyPrint
+const PrettyPrint = require('../console/pretty-print').printStyler
 
 let outputData = ""
 storeLog = inputs => (outputData = inputs);
