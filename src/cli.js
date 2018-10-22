@@ -11,13 +11,12 @@ program
   .option('-s, --synonym [value]', 'Find synonym for word')
 
 // Help
-program
-  .on('--help', function() {
-    console.log('')
-    console.log('Examples:')
-    console.log('  $ wordsmith --rhyme purple') // potential package name???
-    console.log('  $ wordsmith -r purple')
-  })
+program.on('--help', function() {
+  console.log('')
+  console.log('Examples:')
+  console.log('  $ wordsmith --rhyme purple') // potential package name???
+  console.log('  $ wordsmith -r purple')
+})
 
 program.parse(process.argv)
 

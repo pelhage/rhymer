@@ -1,8 +1,8 @@
 const PrettyPrint = require('../console/pretty-print').printStyler
 
-let outputData = ""
-storeLog = inputs => (outputData = inputs);
-console.log = jest.fn(storeLog);
+let outputData = ''
+storeLog = inputs => (outputData = inputs)
+console.log = jest.fn(storeLog)
 
 describe('PrettyPrint', () => {
   it('should log dim output', () => {
