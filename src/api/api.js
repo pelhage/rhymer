@@ -8,7 +8,8 @@ const API = { base: 'https://api.datamuse.com/' }
 const QUERY_PARAMS = {
   rhyme: 'rel_rhy',
   nearRhyme: 'rel_nry',
-  synonym: 'rel_syn'
+  synonym: 'rel_syn',
+  related: 'ml'
 }
 
 /*

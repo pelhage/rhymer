@@ -1,3 +1,3 @@
-const validFlags = ['rhyme', 'nearRhyme', 'synonym']
+const validFlags = ['rhyme', 'nearRhyme', 'synonym', 'related']
 
 module.exports = validFlags
