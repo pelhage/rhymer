@@ -1,4 +1,4 @@
-# rhymezone-cli
+# rhymer [![npm version](https://badge.fury.io/js/rhymer.svg)](https://badge.fury.io/js/rhymer)
 CLI tool to find rhymes using DataMuse API
 
 Allows developers to find words that rhyme straight from the terminal. Basically rhymezone.com but as a CLI

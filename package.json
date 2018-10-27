@@ -1,5 +1,5 @@
 {
-  "name": "rhymezone-cli",
+  "name": "rhymer",
   "version": "0.4.1",
   "description": "A command-line tool for querying Rhymezone",
   "main": "index.js",
@@ -8,6 +8,7 @@
     "test:watch": "./node_modules/.bin/jest ./src/ --watchAll"
   },
   "keywords": [
+    "rhymer",
     "rhymezone",
     "cli"
   ],
