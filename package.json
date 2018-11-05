@@ -7,6 +7,9 @@
     "test": "./node_modules/.bin/jest ./src/",
     "test:watch": "./node_modules/.bin/jest ./src/ --watchAll"
   },
+  "bin": {
+    "rhymer": "bin/rhymer.js"
+  },
   "keywords": [
     "rhymer",
     "rhymezone",
