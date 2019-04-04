@@ -3,6 +3,10 @@
   "version": "0.5.1",
   "description": "A command-line tool for querying Rhymezone",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pelhage/rhymer.git"
+  },
   "scripts": {
     "test": "./node_modules/.bin/jest ./src/",
     "test:watch": "./node_modules/.bin/jest ./src/ --watchAll"
@@ -21,10 +25,10 @@
     "axios": "^0.18.0",
     "chalk": "^2.4.1",
     "commander": "^2.18.0",
-    "lodash": "^4.17.11"
+    "lodash.frompairs": "^4.0.1"
   },
   "devDependencies": {
-    "jest": "^23.6.0",
+    "jest": "^24.7.1",
     "prettier": "1.14.3"
   }
 }
