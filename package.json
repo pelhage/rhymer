@@ -1,6 +1,6 @@
 {
   "name": "rhymer",
-  "version": "0.5.1",
+  "version": "0.5.3",
   "description": "A command-line tool for querying Rhymezone",
   "main": "index.js",
   "repository": {
