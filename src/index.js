@@ -1,9 +1,10 @@
-const CLI = require('./cli')
-const VALID_OPTION_FLAGS = require('./constants/valid-flags')
-const pullValuesFromCommand = require('./pullValuesFromCommand')
-const fetchWords = require('./api/api')
-const logWordSearchResults = require('./console/pretty-print')
-  .logWordSearchResults
+const CLI = require('./cli/program')
+
+const { fetchWords } = require('./core/api/api')
+const pullValuesFromCommand = require('./cli/pullValuesFromCommand')
+const { logWordSearchResults } = require('./cli/pretty-print')
+
+const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym']
 
 const userInput = pullValuesFromCommand(CLI, VALID_OPTION_FLAGS)
 

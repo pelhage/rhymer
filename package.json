@@ -1,6 +1,8 @@
 {
   "name": "rhymer",
   "version": "0.5.3",
+  "author": "Patrick El-Hage",
+  "license": "ISC",
   "description": "A command-line tool for querying Rhymezone",
   "main": "index.js",
   "repository": {
@@ -19,8 +21,9 @@
     "rhymezone",
     "cli"
   ],
-  "author": "Patrick El-Hage",
-  "license": "ISC",
+  "jest": {
+    "verbose": true
+  },
   "dependencies": {
     "axios": "^0.19.0",
     "chalk": "^2.4.1",

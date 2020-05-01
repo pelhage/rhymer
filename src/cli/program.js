@@ -1,6 +1,5 @@
 const program = require('commander')
-
-const packageVersion = require('../package.json').version
+const packageVersion = require('../../package.json').version
 
 program
   .version(packageVersion)
