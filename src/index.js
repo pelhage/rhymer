@@ -8,6 +8,6 @@ const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym']
 
 const userInput = pullValuesFromCommand(CLI, VALID_OPTION_FLAGS)
 
-fetchWords(userInput).then(data =>
-  logWordSearchResults(data, { isVerbose: true, isSorted: true })
-).catch(console.error)
+fetchWords(userInput)
+  .then(data => logWordSearchResults(data, { isVerbose: true, isSorted: true }))
+  .catch(console.error)
