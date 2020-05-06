@@ -7,7 +7,7 @@ const wordStyler = {
 }
 
 const sortBySyllables = data =>
-  data.sort((a, b) => a.numSyllables - b.numSyllables)
+  data.sort().sort((a, b) => a.numSyllables - b.numSyllables)
 
 const logWordSearchResults = (data, { isVerbose, isSorted }) => {
   const sortedWords = isSorted ? sortBySyllables(data) : data
