@@ -1,5 +1,5 @@
-const API = require('./core/api/api')
-const CLI = require('./cli')
+const API = require('./core/api')
+const CLI = require('./rhymer-cli')
 
 const rhymer = ({ process, API }) => {
   const cliInstance = CLI({ process })
