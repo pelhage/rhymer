@@ -1,4 +1,4 @@
-const pullValuesFromCommand = require('../pullValuesFromCommand')
+const pullValuesFromCommand = require('../cli/pullValuesFromCommand')
 
 // Make flags constants to avoid typos
 const KENDRICK_FLAG = 'kendrick'
