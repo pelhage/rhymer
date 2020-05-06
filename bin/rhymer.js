@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-const rhymer = require('../src/index.js')
+const rhymer = require('../src/index.js')()

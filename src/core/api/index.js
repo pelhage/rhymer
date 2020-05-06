@@ -17,7 +17,6 @@ function makeApiClient({ api }) {
     from a given vocabulary that match a given set of constraints.
   */
   function fetchWords(userInput) {
-    console.log({userInput})
     const query = querystring.stringify(
       mapOptionsToQuery(userInput, QUERY_PARAMS)
     )

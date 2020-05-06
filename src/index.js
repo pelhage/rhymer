@@ -1,13 +1,22 @@
-const CLI = require('./cli/program')
+const API = require('./core/api')
+const CLI = require('./rhymer-cli')
 
-const { fetchWords } = require('./core/api/api')
-const pullValuesFromCommand = require('./cli/pullValuesFromCommand')
-const { logWordSearchResults } = require('./cli/pretty-print')
+const rhymer = ({ process, API }) => {
+  const cliInstance = CLI({ process })
+  const userInput = cliInstance.getUserInput()
 
-const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym']
+  return API.fetchWords(userInput)
+    .then(data =>
+      cliInstance.logWordSearchResults(data, {
+        isVerbose: true,
+        isSorted: true
+      })
+    )
+    .catch(console.error)
+}
 
-const userInput = pullValuesFromCommand(CLI, VALID_OPTION_FLAGS)
-
-fetchWords(userInput)
-  .then(data => logWordSearchResults(data, { isVerbose: true, isSorted: true }))
-  .catch(console.error)
+module.exports = {
+  /* for testing purposes */
+  __main: rhymer,
+  default: () => rhymer({ process, API })
+}

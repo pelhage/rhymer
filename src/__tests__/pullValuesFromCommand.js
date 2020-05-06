@@ -1,4 +1,4 @@
-const pullValuesFromCommand = require('../cli/pullValuesFromCommand')
+const pullValuesFromCommand = require('../rhymer-cli/pullValuesFromCommand')
 
 // Make flags constants to avoid typos
 const KENDRICK_FLAG = 'kendrick'
@@ -23,7 +23,6 @@ const PROGRAM_STUB = {
 
 describe('pullValuesFromProgram', () => {
   it('should return an object mapping the list of flags to any supplied values', () => {
-    console.log(PROGRAM_STUB, PROGRAM_FLAGS)
     const actual = pullValuesFromCommand(PROGRAM_STUB, PROGRAM_FLAGS)
     const expected = { [KENDRICK_FLAG]: KENDRICK_VAL, [J_FLAG]: J_VAL }
     expect(actual).toEqual(expected)

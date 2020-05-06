@@ -1,4 +1,4 @@
-const PrettyPrint = require('../cli/pretty-print').printStyler
+const PrettyPrint = require('../rhymer-cli/pretty-print').wordStyler
 
 let outputData = ''
 storeLog = inputs => (outputData = inputs)
