@@ -17,6 +17,6 @@ program.on('--help', function() {
   console.log('  $ wordsmith -r purple')
 })
 
-program.parse(process.argv)
+console.log('arguments passed:', process.argv)
 
-module.exports = program
+module.exports = (argv) => program.parse(argv)

@@ -10,7 +10,7 @@
     "url": "https://github.com/pelhage/rhymer.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/jest ./src/",
+    "test": "./node_modules/.bin/jest ./src/ --collectCoverage",
     "format": "prettier --write ./src/*.js",
     "test:watch": "./node_modules/.bin/jest ./src/ --watchAll"
   },
