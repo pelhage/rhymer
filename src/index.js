@@ -18,5 +18,5 @@ const rhymer = ({ process, API }) => {
 module.exports = {
   /* for testing purposes */
   __main: rhymer,
-  default: rhymer({ process, API })
+  default: () => rhymer({ process, API })
 }

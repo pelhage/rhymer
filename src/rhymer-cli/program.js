@@ -13,8 +13,8 @@ program
 program.on('--help', function() {
   console.log('')
   console.log('Examples:')
-  console.log('  $ wordsmith --rhyme purple') // potential package name???
-  console.log('  $ wordsmith -r purple')
+  console.log('  $ rhymer --rhyme purple') // potential package name???
+  console.log('  $ rhymer -r purple')
 })
 
-module.exports = (argv) => program.parse(argv)
+module.exports = argv => program.parse(argv)

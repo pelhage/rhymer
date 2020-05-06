@@ -19,7 +19,7 @@ const logWordSearchResults = (data, { isVerbose, isSorted }) => {
     }
     return wordStyler.weak(word)
   }
-  
+
   const prettyData = sortedWords.map(styleWordByScore).join(' ')
 
   console.log(prettyData)
