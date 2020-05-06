@@ -4,7 +4,7 @@ const mapOptionsToQuery = require('./mapOptionsToQuery')
 
 function makeApiClient({ api }) {
   // https://www.datamuse.com/api/
-  const API = { base: 'https://api.datamuse.com/' }
+  const API = { base: 'https://api.datamuse.com' }
 
   const QUERY_PARAMS = {
     rhyme: 'rel_rhy',
@@ -21,9 +21,7 @@ function makeApiClient({ api }) {
       mapOptionsToQuery(userInput, QUERY_PARAMS)
     )
 
-    return api.get(`${API.base}/words?${query}`).then(res => {
-      return res.data
-    })
+    return api.get(`${API.base}/words?${query}`).then(res => res.data)
   }
 
   return {
