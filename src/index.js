@@ -6,8 +6,13 @@ const rhymer = ({ process, API }) => {
   const userInput = cliInstance.getUserInput()
 
   return API.fetchWords(userInput)
-    .then((data) => cliInstance.logWordSearchResults(data, { isVerbose: true, isSorted: true }))
-    .catch(console.error)  
+    .then(data =>
+      cliInstance.logWordSearchResults(data, {
+        isVerbose: true,
+        isSorted: true
+      })
+    )
+    .catch(console.error)
 }
 
 module.exports = {
