@@ -2,7 +2,7 @@ function rhyme(rhymeInfo) {
   return {
     getSyllables: () => rhymeInfo.numSyllables,
     word: () => rhymeInfo.word,
-    score: () => rhymeInfo.score,
+    score: () => rhymeInfo.score
   }
 }
 
