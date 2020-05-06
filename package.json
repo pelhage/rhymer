@@ -31,7 +31,17 @@
     "lodash.frompairs": "^4.0.1"
   },
   "devDependencies": {
+    "husky": "^4.2.5",
     "jest": "^24.7.1",
+    "lint-staged": "^10.2.2",
     "prettier": "1.14.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
