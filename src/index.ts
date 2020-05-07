@@ -1,5 +1,5 @@
-const API = require('./core/api')
-const CLI = require('./rhymer-cli')
+import API from './core/api'
+import CLI from './rhymer-cli'
 
 const rhymer = ({ process, API }) => {
   const cliInstance = CLI({ process })
@@ -15,8 +15,8 @@ const rhymer = ({ process, API }) => {
     .catch(console.error)
 }
 
-module.exports = {
-  /* for testing purposes */
-  __main: rhymer,
-  default: () => rhymer({ process, API })
-}
+export default () => rhymer({ process, API }) 
+  
+/* for testing purposes */
+const __main = rhymer
+export { __main }

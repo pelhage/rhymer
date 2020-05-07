@@ -1,5 +1,6 @@
-const CLIProgram = require('./program')
-
+import CLIProgram from './program'
+import pullValuesFromCommand from './pullValuesFromCommand'
+import { logWordSearchResults } from './pretty-print'
 /**
  * This is the core CLI interface that is used
  * to parse user inputs and display results
@@ -12,8 +13,6 @@ const CLIProgram = require('./program')
 const CLI = ({ process }) => {
   const command = CLIProgram(process.argv)
   const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym']
-  const pullValuesFromCommand = require('./pullValuesFromCommand')
-  const { logWordSearchResults } = require('./pretty-print')
 
   return {
     /**

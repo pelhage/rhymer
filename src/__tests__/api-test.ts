@@ -1,4 +1,4 @@
-const api = require('../core/api')
+import api from '../core/api'
 
 describe('api client', () => {
   describe('fetchWords', () => {

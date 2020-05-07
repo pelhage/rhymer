@@ -1,4 +1,4 @@
-const { createCommand } = require('commander')
+import { createCommand } from 'commander'
 const packageVersion = require('../../package.json').version
 
 export default argv => {

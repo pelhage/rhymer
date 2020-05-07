@@ -1,4 +1,4 @@
-const fromPairs = require('lodash.frompairs')
+import * as fromPairs from 'lodash.frompairs'
 
 // takes config and will use this as the
 // basis of flags it accepts

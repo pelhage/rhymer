@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rhymer CLI integration test should log words that nearly rhyme with cat to the console 1`] = `
+Array [
+  "",
+]
+`;
+
+exports[`rhymer CLI mocked API should log words that rhyme with cat to the console 1`] = `
+Array [
+  "[34m[1mat[22m[39m [34m[1mthat[22m[39m [34m[1mhat[22m[39m [34mrat[39m [34m[1mcaveat[22m[39m",
+]
+`;

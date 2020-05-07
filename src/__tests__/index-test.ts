@@ -1,6 +1,6 @@
-const nock = require('nock')
-const { __main } = require('../index')
-const API = require('../core/api')
+import * as nock from 'nock'
+import { __main } from '../index'
+import API from '../core/api'
 
 describe('rhymer CLI', () => {
   const originalLog = console.log
@@ -9,7 +9,9 @@ describe('rhymer CLI', () => {
   const mockedLog = output => {
     consoleOutput.push(output)
   }
-  let mockedProcess = {}
+  let mockedProcess = {
+    argv: []
+  }
   beforeEach(() => {
     consoleOutput = []
     mockedProcess = {

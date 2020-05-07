@@ -1,4 +1,4 @@
-const pullValuesFromCommand = require('../rhymer-cli/pullValuesFromCommand')
+import pullValuesFromCommand from '../rhymer-cli/pullValuesFromCommand'
 
 // Make flags constants to avoid typos
 const KENDRICK_FLAG = 'kendrick'
