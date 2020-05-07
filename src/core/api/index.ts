@@ -28,4 +28,4 @@ function makeApiClient({ api }) {
   }
 }
 
-module.exports = makeApiClient({ api: axios })
+export default makeApiClient({ api: axios })

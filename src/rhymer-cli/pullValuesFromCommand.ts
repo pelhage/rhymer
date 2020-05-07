@@ -7,4 +7,4 @@ const pullValuesFromCommand = (program, flags) =>
     flags.filter(flag => program[flag]).map(flag => [flag, program[flag]])
   )
 
-module.exports = pullValuesFromCommand
+export default pullValuesFromCommand

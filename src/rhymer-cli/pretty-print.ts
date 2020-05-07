@@ -25,7 +25,8 @@ const logWordSearchResults = (data, { isVerbose, isSorted }) => {
   console.log(prettyData)
 }
 
-module.exports = {
-  wordStyler,
+export { wordStyler }
+export {
   logWordSearchResults
 }
+

@@ -29,4 +29,4 @@ const CLI = ({ process }) => {
   }
 }
 
-module.exports = CLI
+export default CLI

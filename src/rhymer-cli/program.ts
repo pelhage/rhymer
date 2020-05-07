@@ -1,7 +1,7 @@
 const { createCommand } = require('commander')
 const packageVersion = require('../../package.json').version
 
-module.exports = argv => {
+export default argv => {
   const program = createCommand()
   program
     .version(packageVersion)
