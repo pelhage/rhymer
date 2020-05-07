@@ -22,7 +22,7 @@ describe('rhymer CLI', () => {
     console.log = originalLog
   })
   describe('integration test', () => {
-    it('should log words that rhyme with cat to the console', async () => {
+    it.skip('should log words that rhyme with cat to the console', async () => {
       mockedProcess.argv.push('--rhyme', 'cat')
       await __main({ process: mockedProcess, API })
       expect(consoleOutput).toMatchSnapshot()
