@@ -11,21 +11,20 @@ function makeApiClient({ api }) {
     nearRhyme: 'rel_nry',
     synonym: 'rel_syn'
   }
-  /*
-    `/words` endpoint
-    This endpoint returns a list of words (and multiword expressions)
-    from a given vocabulary that match a given set of constraints.
-  */
-  function fetchWords(userInput) {
-    const query = querystring.stringify(
-      mapOptionsToQuery(userInput, QUERY_PARAMS)
-    )
-
-    return api.get(`${API.base}/words?${query}`).then(res => res.data)
-  }
 
   return {
-    fetchWords
+    /*
+      `/words` endpoint
+      This endpoint returns a list of words (and multiword expressions)
+      from a given vocabulary that match a given set of constraints.
+    */
+    fetchWords(userInput) {
+      const query = querystring.stringify(
+        mapOptionsToQuery(userInput, QUERY_PARAMS)
+      )
+
+      return api.get(`${API.base}/words?${query}`).then(res => res.data)
+    }
   }
 }
 
