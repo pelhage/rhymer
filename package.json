@@ -12,6 +12,7 @@
   "scripts": {
     "test": "./node_modules/.bin/jest ./src/ --collectCoverage",
     "format": "prettier --write ./src/**/*.js",
+    "build": "tsc",
     "test:watch": "./node_modules/.bin/jest ./src/ --watchAll"
   },
   "bin": {
@@ -22,9 +23,6 @@
     "rhymezone",
     "cli"
   ],
-  "jest": {
-    "verbose": true
-  },
   "dependencies": {
     "axios": "^0.19.0",
     "chalk": "^2.4.1",
@@ -32,11 +30,15 @@
     "lodash.frompairs": "^4.0.1"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^12.12.38",
     "husky": "^4.2.5",
     "jest": "^24.7.1",
     "lint-staged": "^10.2.2",
     "nock": "^12.0.3",
-    "prettier": "1.14.3"
+    "prettier": "1.14.3",
+    "ts-jest": "^25.5.0",
+    "typescript": "^3.8.3"
   },
   "husky": {
     "hooks": {

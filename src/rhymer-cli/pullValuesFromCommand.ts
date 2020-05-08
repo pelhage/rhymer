@@ -1,4 +1,4 @@
-const fromPairs = require('lodash.frompairs')
+import * as fromPairs from 'lodash.frompairs'
 
 // takes config and will use this as the
 // basis of flags it accepts
@@ -7,4 +7,4 @@ const pullValuesFromCommand = (program, flags) =>
     flags.filter(flag => program[flag]).map(flag => [flag, program[flag]])
   )
 
-module.exports = pullValuesFromCommand
+export default pullValuesFromCommand

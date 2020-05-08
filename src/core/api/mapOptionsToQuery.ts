@@ -25,4 +25,4 @@ const mapOptionsToQuery = (programOptionValues, queryOptions) => {
   return objectWithQueryParamsAsKeys
 }
 
-module.exports = mapOptionsToQuery
+export default mapOptionsToQuery

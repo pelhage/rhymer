@@ -1,4 +1,3 @@
 #!/usr/bin/env node
-const rhymer = require('../src/index.js').default
-console.log({ rhymer })
+const rhymer = require('../built/index.js').default
 rhymer()

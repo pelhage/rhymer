@@ -1,6 +1,6 @@
-const axios = require('axios')
-const querystring = require('querystring')
-const mapOptionsToQuery = require('./mapOptionsToQuery')
+import axios from 'axios'
+import * as querystring from 'querystring'
+import mapOptionsToQuery from './mapOptionsToQuery'
 
 function makeApiClient({ api }) {
   // https://www.datamuse.com/api/
@@ -28,4 +28,4 @@ function makeApiClient({ api }) {
   }
 }
 
-module.exports = makeApiClient({ api: axios })
+export default makeApiClient({ api: axios })

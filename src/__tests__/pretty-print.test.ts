@@ -1,7 +1,7 @@
-const PrettyPrint = require('../rhymer-cli/pretty-print').wordStyler
+import { wordStyler as PrettyPrint } from '../rhymer-cli/pretty-print'
 
 let outputData = ''
-storeLog = inputs => (outputData = inputs)
+const storeLog = inputs => (outputData = inputs)
 console.log = jest.fn(storeLog)
 
 describe('PrettyPrint', () => {

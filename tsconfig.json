@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+      "outDir": "./built",
+      "lib": ["es2016"],
+      "allowJs": true,
+      "noImplicitAny": false,
+      "target": "es5",
+      "types": ["node", "jest"]
+  },
+  "include": [
+      "./src/**/*"
+  ]
+}

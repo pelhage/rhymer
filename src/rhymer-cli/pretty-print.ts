@@ -1,4 +1,4 @@
-const chalk = require('chalk')
+import chalk from 'chalk'
 
 const wordStyler = {
   weak: word => chalk.dim(word),
@@ -25,7 +25,8 @@ const logWordSearchResults = (data, { isVerbose, isSorted }) => {
   console.log(prettyData)
 }
 
-module.exports = {
-  wordStyler,
+export { wordStyler }
+export {
   logWordSearchResults
 }
+
