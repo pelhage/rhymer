@@ -20,7 +20,6 @@ if (process.env.STATS) {
   
     return config;
   })
-  
   axios.interceptors.response.use((response) => {
     const { method, url, metadata } = response.config
     const duration = new Date().getTime() - metadata.startTime.getTime() + 'ms'
@@ -34,8 +33,6 @@ if (process.env.STATS) {
     return response;
   })
 }
-
-
 
 function makeApiClient({ api }) {
   const API = { base: 'https://api.datamuse.com' }

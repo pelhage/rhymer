@@ -13,7 +13,7 @@ import logger from './logger'
  */
 const CLI = ({ process }) => {
   const command = CLIProgram(process)
-  const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym']
+  const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym', 'related']
   // takes config and will use this as the
   // basis of flags it accepts
   const pullValuesFromCommand = (command: Record<any, any>, flags: Array<string>) => fromPairs(
