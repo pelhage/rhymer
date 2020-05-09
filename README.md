@@ -1,8 +1,23 @@
 # rhymer [![npm version](https://badge.fury.io/js/rhymer.svg)](https://badge.fury.io/js/rhymer)
 
-CLI tool to find rhymes using DataMuse API
+CLI tool to find rhymes using DataMuse API allowing developers to find words that rhyme from the terminal. Basically rhymezone.com but as a CLI
 
-Allows developers to find words that rhyme straight from the terminal. Basically rhymezone.com but as a CLI
+## Getting started
+Install
+```bash
+npm install -g rhymer
+```
+```console
+# -r or --rhyme 
+$ rhymer -r hello
+
+go blow show know snow so throw flow though pro
+quo grow row sew mow low o woe crow no yoe toe hoe
+glow owe joe co dough slow beau doe ho foe glo 
+....
+```
+
+
 
 ## Todo
 
