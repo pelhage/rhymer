@@ -14,7 +14,7 @@ declare module 'axios' {
   }
 }
 
-if (process.env.STATS) {
+if (process.env.STATS === 'true') {
   axios.interceptors.request.use((config) => {
     config.metadata = { startTime: new Date() }
   
