@@ -1,6 +1,6 @@
 {
   "name": "rhymer",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "author": "Patrick El-Hage",
   "license": "ISC",
   "description": "A command-line tool for querying Rhymezone",
