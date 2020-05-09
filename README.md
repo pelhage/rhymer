@@ -1,4 +1,5 @@
-# rhymer [![npm version](https://badge.fury.io/js/rhymer.svg)](https://badge.fury.io/js/rhymer) [![codecov](https://codecov.io/gh/pelhage/rhymer/branch/master/graph/badge.svg)](https://codecov.io/gh/pelhage/rhymer)
+# rhymer [![npm version](https://badge.fury.io/js/rhymer.svg)](https://badge.fury.io/js/rhymer) [![codecov](https://codecov.io/gh/pelhage/rhymer/branch/master/graph/badge.svg)](https://codecov.io/gh/pelhage/rhymer) [![circleci](https://circleci.com/gh/pelhage/rhymer.svg?style=svg)](https://app.circleci.com/jobs/github/pelhage/rhymer/)
+
 
 CLI tool to find rhymes using DataMuse API allowing developers to find words that rhyme from the terminal. Basically rhymezone.com but as a CLI
 
