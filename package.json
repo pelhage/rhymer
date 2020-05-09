@@ -4,7 +4,7 @@
   "author": "Patrick El-Hage",
   "license": "ISC",
   "description": "A command-line tool for querying Rhymezone",
-  "main": "index.js",
+  "main": "built/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/pelhage/rhymer.git"
