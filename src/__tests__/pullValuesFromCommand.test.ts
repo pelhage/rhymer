@@ -12,7 +12,7 @@ const NASIR_VAL = 'jones'
 
 // The acceptable flags which are the only available
 // option-value pairs to pull from
-const PROGRAM_FLAGS = [KENDRICK_FLAG, J_FLAG, JID_FLAG, NASIR_FLAG]
+const PROGRAM_FLAGS = ['kendrick', 'j', 'jid', 'nasir']
 // Fake program object
 const PROGRAM_STUB = {
   [KENDRICK_FLAG]: KENDRICK_VAL,

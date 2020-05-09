@@ -1,4 +1,5 @@
-import { wordStyler as PrettyPrint } from '../rhymer-cli/pretty-print'
+import logger from '../rhymer-cli/logger'
+const { wordStyler: PrettyPrint } = logger
 
 let outputData = ''
 const storeLog = inputs => (outputData = inputs)
