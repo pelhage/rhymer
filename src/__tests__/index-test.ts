@@ -61,7 +61,7 @@ describe('rhymer CLI', () => {
     it.skip('should have a help command', async () => {
       mockedProcess.argv.push('--help')
       await __main({ process: mockedProcess, API })
-      
+
       expect(consoleOutput).toMatchSnapshot()
     })
   })
