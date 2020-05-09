@@ -1,17 +1,55 @@
 import axios from 'axios'
 import * as querystring from 'querystring'
+import chalk from 'chalk'
 
 interface IFetchWordsOptions {
   nearRhyme?: string
   rhyme?: string
 }
+declare module 'axios' {
+  export interface AxiosRequestConfig {
+    metadata: {
+      startTime: Date
+    }
+  }
+}
+
+if (process.env.STATS) {
+  axios.interceptors.request.use((config) => {
+    config.metadata = { startTime: new Date() }
+  
+    return config;
+  })
+  
+  axios.interceptors.response.use((response) => {
+    const { method, url, metadata } = response.config
+    const duration = new Date().getTime() - metadata.startTime.getTime() + 'ms'
+  
+    console.log(
+      `${chalk.green(duration + ' ' + method.toUpperCase())} ${chalk.dim(url)}`
+      + '\n=====response: ============='
+    )
+    console.log(response.data)
+  
+    return response;
+  })
+}
+
+
 
 function makeApiClient({ api }) {
   const API = { base: 'https://api.datamuse.com' }
   const QUERY_PARAMS = {
+    // Rhymes ("perfect" rhymes, per RhymeZone)	
+    // spade → aid
     rhyme: 'rel_rhy',
+    // Approximate rhymes (per RhymeZone)	
+    // forest → chorus
     nearRhyme: 'rel_nry',
-    synonym: 'rel_syn'
+    //Synonyms (words contained within the same WordNet synset)	
+    // ocean → sea
+    synonym: 'rel_syn',
+    related: 'rel_spc'
   }
 
   return {
