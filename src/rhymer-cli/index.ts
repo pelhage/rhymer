@@ -16,9 +16,13 @@ const CLI = ({ process }) => {
   const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym', 'related']
   // takes config and will use this as the
   // basis of flags it accepts
-  const pullValuesFromCommand = (command: Record<any, any>, flags: Array<string>) => fromPairs(
-    flags.filter(flag => command[flag]).map(flag => [flag, command[flag]])
-  )
+  const pullValuesFromCommand = (
+    command: Record<any, any>,
+    flags: Array<string>
+  ) =>
+    fromPairs(
+      flags.filter(flag => command[flag]).map(flag => [flag, command[flag]])
+    )
 
   return {
     /**

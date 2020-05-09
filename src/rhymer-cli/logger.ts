@@ -4,7 +4,7 @@ function logger() {
   const wordStyler = {
     weak: chalk.dim,
     normal: chalk.blue,
-    strong: chalk.blue.bold,
+    strong: chalk.blue.bold
   }
 
   const sortBySyllables = data =>
@@ -19,15 +19,17 @@ function logger() {
       }
       return wordStyler.weak(word)
     }
-  
-    const prettyData = sortBySyllables(data).map(styleWordByScore).join(' ')
-  
+
+    const prettyData = sortBySyllables(data)
+      .map(styleWordByScore)
+      .join(' ')
+
     console.log(prettyData)
   }
 
   return {
     wordStyler,
-    logWordSearchResults,
+    logWordSearchResults
   }
 }
 

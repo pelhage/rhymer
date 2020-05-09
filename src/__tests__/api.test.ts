@@ -20,7 +20,7 @@ describe('api client', () => {
     const originalProcess = process
     const originalLog = console.log
     let newLog = []
-    console.log = (str) => newLog.push(str)
+    console.log = str => newLog.push(str)
     afterEach(() => {
       console.log = originalLog
       process = originalProcess
@@ -36,7 +36,9 @@ describe('api client', () => {
       // not the best match, but avoids complications of chalk and other
       // dynamic values that can break tests. What I really care about testing
       // is that something is/isn't logged when STATS true/false
-      const includesString = newLog.join(' ').includes("=====response: =============")
+      const includesString = newLog
+        .join(' ')
+        .includes('=====response: =============')
       expect(includesString).toBe(true)
     })
     it('should disable logging if process.env.STATS is not set', async () => {
@@ -48,7 +50,9 @@ describe('api client', () => {
       // not the best match, but avoids complications of chalk and other
       // dynamic values that can break tests. What I really care about testing
       // is that something is/isn't logged when STATS true/false
-      const includesString = newLog.join(' ').includes("=====response: =============")
+      const includesString = newLog
+        .join(' ')
+        .includes('=====response: =============')
       expect(includesString).toBe(false)
     })
   })

@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/jest ./src/ --collectCoverage",
-    "format": "prettier --write ./src/**/*.js",
+    "format": "prettier --write ./src/**/*.{js,ts}",
     "build": "tsc",
     "test:watch": "./node_modules/.bin/jest ./src/ --watchAll"
   },
@@ -47,6 +47,6 @@
     }
   },
   "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,ts,css,md}": "prettier --write"
   }
 }

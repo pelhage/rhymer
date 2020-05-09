@@ -1,7 +1,7 @@
 import { createCommand } from 'commander'
 const packageVersion = require('../../package.json').version
 
-export default (process) => {
+export default process => {
   const program = createCommand()
   program
     .version(packageVersion)
@@ -10,7 +10,7 @@ export default (process) => {
     .option('-R, --related [value]', 'Find words related to [value]')
     .option('-n, --nearRhyme [value]', 'Find near rhymes')
     .option('-s, --synonym [value]', 'Find synonym for word')
-    
+
   program.on('--help', () => {
     console.log('')
     console.log('Examples:')
