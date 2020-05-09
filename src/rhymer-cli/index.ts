@@ -1,6 +1,7 @@
 import CLIProgram from './program'
-import pullValuesFromCommand from './pullValuesFromCommand'
-import { logWordSearchResults } from './pretty-print'
+import * as fromPairs from 'lodash.frompairs'
+import logger from './logger'
+
 /**
  * This is the core CLI interface that is used
  * to parse user inputs and display results
@@ -11,8 +12,13 @@ import { logWordSearchResults } from './pretty-print'
  * directly with the API
  */
 const CLI = ({ process }) => {
-  const command = CLIProgram(process.argv)
+  const command = CLIProgram(process)
   const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym']
+  // takes config and will use this as the
+  // basis of flags it accepts
+  const pullValuesFromCommand = (command: Record<any, any>, flags: Array<string>) => fromPairs(
+    flags.filter(flag => command[flag]).map(flag => [flag, command[flag]])
+  )
 
   return {
     /**
@@ -24,7 +30,7 @@ const CLI = ({ process }) => {
      * Logs data returned by data muse API into something nice + readable in
      * the terminal
      */
-    logWordSearchResults
+    logWordSearchResults: logger.logWordSearchResults
   }
 }
 

@@ -1,11 +1,13 @@
 import axios from 'axios'
 import * as querystring from 'querystring'
-import mapOptionsToQuery from './mapOptionsToQuery'
+
+interface IFetchWordsOptions {
+  nearRhyme?: string
+  rhyme?: string
+}
 
 function makeApiClient({ api }) {
-  // https://www.datamuse.com/api/
   const API = { base: 'https://api.datamuse.com' }
-
   const QUERY_PARAMS = {
     rhyme: 'rel_rhy',
     nearRhyme: 'rel_nry',
@@ -18,10 +20,14 @@ function makeApiClient({ api }) {
       This endpoint returns a list of words (and multiword expressions)
       from a given vocabulary that match a given set of constraints.
     */
-    fetchWords(userInput) {
-      const query = querystring.stringify(
-        mapOptionsToQuery(userInput, QUERY_PARAMS)
-      )
+    fetchWords(userInput: IFetchWordsOptions) {
+      const options = Object.keys(userInput).map(type => ({
+        [QUERY_PARAMS[type]]: userInput[type]
+      })).reduce((mergedObj, currObj) => ({
+          ...mergedObj,
+          ...currObj
+        }), {})
+      const query = querystring.stringify(options)
 
       return api.get(`${API.base}/words?${query}`).then(res => res.data)
     }

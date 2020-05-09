@@ -6,17 +6,12 @@ const rhymer = ({ process, API }) => {
   const userInput = cliInstance.getUserInput()
 
   return API.fetchWords(userInput)
-    .then(data =>
-      cliInstance.logWordSearchResults(data, {
-        isVerbose: true,
-        isSorted: true
-      })
-    )
+    .then(cliInstance.logWordSearchResults)
     .catch(console.error)
 }
 
 export default () => rhymer({ process, API }) 
   
-/* for testing purposes */
+/* for unit testing purposes */
 const __main = rhymer
 export { __main }
