@@ -1,5 +1,5 @@
 import CLIProgram from './program'
-import pullValuesFromCommand from './pullValuesFromCommand'
+import * as fromPairs from 'lodash.frompairs'
 import logger from './logger'
 
 /**
@@ -14,6 +14,11 @@ import logger from './logger'
 const CLI = ({ process }) => {
   const command = CLIProgram(process)
   const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym']
+  // takes config and will use this as the
+  // basis of flags it accepts
+  const pullValuesFromCommand = (command: Record<any, any>, flags: Array<string>) => fromPairs(
+    flags.filter(flag => command[flag]).map(flag => [flag, command[flag]])
+  )
 
   return {
     /**
