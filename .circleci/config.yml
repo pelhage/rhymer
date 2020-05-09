@@ -36,8 +36,8 @@ jobs:
       # run tests!
       - run: npm test
       - run:
-        name: Upload to codecov
-        command: bash <(curl -s https://codecov.io/bash) || echo 'Codecov failed to upload'
+          name: Upload to codecov
+          command: bash <(curl -s https://codecov.io/bash) || echo 'Codecov failed to upload'
     
 
 
