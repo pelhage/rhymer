@@ -17,17 +17,25 @@ const CLI = ({ process }) => {
   // takes config and will use this as the
   // basis of flags it accepts
   const pullValuesFromCommand = (
-    command: Record<any, any>,
+    command: Record<string, string>,
     flags: Array<string>
-  ) =>
-    fromPairs(
-      flags.filter(flag => command[flag]).map(flag => [flag, command[flag]])
-    )
+  ) => {
+    // tuple of the cli command and the user input
+    const commandValuePairs = flags
+      .filter(flag => command[flag])
+      .map(flag => [flag, command[flag]])
+
+    return fromPairs(commandValuePairs)
+  }
 
   return {
     /**
      * Converts what is passed to the CLI -> commander into a more
-     * readable object
+     * readable object, e.g.:
+     * {
+     *   rhyme: 'Cat',
+     *   nearRhyme: 'Hello',
+     * }
      */
     getUserInput: () => pullValuesFromCommand(command, VALID_OPTION_FLAGS),
     /**
