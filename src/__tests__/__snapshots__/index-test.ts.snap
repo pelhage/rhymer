@@ -23,9 +23,3 @@ Array [
   "[34m[1mat[22m[39m [34m[1mthat[22m[39m [34m[1mhat[22m[39m [34mrat[39m [34m[1mcaveat[22m[39m",
 ]
 `;
-
-exports[`rhymer CLI mocked API should return a cached value if it exists in the cache: cache 1`] = `
-Array [
-  "[34m[1mcache[22m[39m",
-]
-`;
