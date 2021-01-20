@@ -1,12 +1,8 @@
-export const makeCache = (
-  cache: Record<string, string> = {
-    cash: 'cache'
-  }
-) => {
+export const makeCache = (cache: Record<string, string> = {}) => {
   return {
     get(key) {
       if (typeof key !== 'string') {
-        throw Error()
+        throw Error(`Key ${key} must be a string`)
       }
       if (cache[key]) {
         return cache[key]

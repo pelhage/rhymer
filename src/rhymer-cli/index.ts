@@ -2,6 +2,7 @@ import CLIProgram from './program'
 import * as fromPairs from 'lodash.frompairs'
 import logger from './logger'
 
+type validOptionFlags = 'rhyme' | 'nearRhyme' | 'synonym' | 'related'
 /**
  * This is the core CLI interface that is used
  * to parse user inputs and display results
@@ -13,19 +14,24 @@ import logger from './logger'
  */
 const CLI = ({ process }) => {
   const command = CLIProgram(process)
-  const VALID_OPTION_FLAGS = ['rhyme', 'nearRhyme', 'synonym', 'related']
+  const VALID_OPTION_FLAGS: validOptionFlags[] = [
+    'rhyme',
+    'nearRhyme',
+    'synonym',
+    'related'
+  ]
   // takes config and will use this as the
   // basis of flags it accepts
   const pullValuesFromCommand = (
     command: Record<string, string>,
-    flags: Array<string>
+    flags: validOptionFlags[]
   ) => {
     // tuple of the cli command and the user input
     const commandValuePairs = flags
       .filter(flag => command[flag])
       .map(flag => [flag, command[flag]])
 
-    return fromPairs(commandValuePairs)
+    return fromPairs(commandValuePairs) as { [key in validOptionFlags]: string }
   }
 
   return {
