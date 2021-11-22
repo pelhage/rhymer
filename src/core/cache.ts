@@ -10,9 +10,11 @@ export const makeCache = (cache: Record<string, string> = {}) => {
     },
     set(key, value) {
       if (typeof key !== 'string') {
-        throw Error()
+        throw Error(`Key ${key} must be a string`)
       }
       cache[key] = value
+
+      return cache[key]
     },
     getRhyme() {
       return 'hi'

@@ -67,9 +67,6 @@ describe('rhymer CLI', () => {
       expect(consoleOutput).toMatchSnapshot()
     })
     describe('caching', () => {
-      // it('should check the user cache before making requests', () => {
-      //   expect(Cache.get).toHaveBeenCalled()
-      // })
       it('should return a cached value if it exists in the cache', async () => {
         mockedProcess.argv.push('--rhyme', 'cash')
         const scope = nock('https://api.datamuse.com')
@@ -80,9 +77,6 @@ describe('rhymer CLI', () => {
             { word: 'stash', score: 4418, numSyllables: 1 },
             { word: 'slash', score: 3776, numSyllables: 1 }
           ])
-        // Cache.get.mockReturnValueOnce(
-        //   JSON.stringify([{ word: 'cache', score: 4000 }])
-        // )
         await __main({
           process: mockedProcess,
           API,
@@ -114,20 +108,38 @@ describe('rhymer CLI', () => {
       })
       it('should fetch from Cache after populating it', async () => {
         mockedProcess.argv.push('--rhyme', 'cash')
-        const scope = nock('https://api.datamuse.com')
+        nock('https://api.datamuse.com')
           .get('/words')
+          .once()
           .query({ rel_rhy: 'cash' })
           .reply(200, [
             { word: 'bash', score: 5475, numSyllables: 1 },
             { word: 'stash', score: 4418, numSyllables: 1 },
             { word: 'slash', score: 3776, numSyllables: 1 }
           ])
+        const localCache = makeCache()
         await __main({
           process: mockedProcess,
           API,
-          Cache: makeCache()
+          Cache: localCache
         })
-        expect(consoleOutput).not.toContain('cache')
+
+        nock('https://api.datamuse.com')
+          .get('/words')
+          .twice()
+          .query({ rel_rhy: 'cash' })
+          .reply(200, [
+            { word: 'ash', score: 5475, numSyllables: 1 },
+            { word: 'flash', score: 4418, numSyllables: 1 },
+            { word: 'rash', score: 3776, numSyllables: 1 }
+          ])
+        await __main({
+          process: mockedProcess,
+          API,
+          Cache: localCache
+        })
+
+        expect(consoleOutput[0]).toEqual(consoleOutput[1])
       })
     })
   })

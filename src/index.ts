@@ -7,7 +7,7 @@ const Cache = makeCache()
 type ICache = typeof Cache
 // this can probably be simplified further
 // by merging rhymer-cli itself
-const rhymer = ({
+const rhymer = async ({
   process,
   API,
   Cache
@@ -18,13 +18,21 @@ const rhymer = ({
 }) => {
   const cliInstance = CLI({ process })
   const userInput = cliInstance.getUserInput()
-  const cachedValue = Cache.get(JSON.stringify(userInput))
+  const stringifiedKey = userInput ? JSON.stringify(userInput) : ''
+  const cachedValue = Cache.get(stringifiedKey)
+
   if (cachedValue) {
-    const parsedCacheValue = JSON.parse(cachedValue)
+    let parsedCacheValue
+    try {
+      parsedCacheValue = JSON.parse(cachedValue)
+    } catch (e) {
+      throw Error(JSON.stringify(cachedValue))
+    }
     return cliInstance.logWordSearchResults(parsedCacheValue)
   }
 
   return API.fetchWords(userInput)
+    .then(res => Cache.set(stringifiedKey, JSON.stringify(res)))
     .then(cliInstance.logWordSearchResults)
     .catch(console.error)
 }
